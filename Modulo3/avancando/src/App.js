@@ -6,6 +6,7 @@ import ListRender from './components/ListRender';
 import ConditionalRender from './components/ConditionalRender';
 import ShowUserName from './components/ShowUserName';
 import { useState } from 'react';
+import CarDetails from './components/CarDetails';
 
 function App() {
 
@@ -29,9 +30,15 @@ function App() {
       <ManageData />
       <ListRender />
       <ConditionalRender />
+      {/* props */}
       <ShowUserName name="Matheus" />
       <ShowUserName name={name} />
       <ShowUserName name={userName} />
+      {/* destructing */}
+      <CarDetails brand="VW" km={100000} color="Azul" newCar={false}/>
+      {/* reaproveitamento */}
+      <CarDetails brand="Ford" color="Vermelha" km={0} newCar={true}/>
+      <CarDetails brand="Fiat" color="Branco" km={4500} newCar={false} />
     </div>
   );
 }
