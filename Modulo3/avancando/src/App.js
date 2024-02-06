@@ -5,8 +5,10 @@ import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
 import ConditionalRender from './components/ConditionalRender';
 import ShowUserName from './components/ShowUserName';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import CarDetails from './components/CarDetails';
+import Fragmento from './components/Fragmento';
+import Container from './components/Container';
 
 function App() {
 
@@ -54,6 +56,15 @@ function App() {
           newCar={car.newCar} 
         />
       ))}
+      {/* Fragment */}
+      <Fragmento propFragmento="teste"/>
+      {/* Children */}
+      <Container myValue="testing">
+        <p>E este é o conteúdo</p>
+      </Container>
+      <Container myValue="testing 2">
+        <h5>Testando o container</h5>
+      </Container>
     </div>
   );
 }
