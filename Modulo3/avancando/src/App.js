@@ -10,6 +10,9 @@ import CarDetails from './components/CarDetails';
 import Fragmento from './components/Fragmento';
 import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
+import Message from './components/Message';
+import ChangeMessageState from './components/ChangeMessageState';
+import UserDetails from './components/UserDetails';
 
 function App() {
 
@@ -25,6 +28,19 @@ function App() {
   function showMessage(){
     console.log("Evento do componente pai!");
   }
+
+  const [message, setMessage] = useState("")
+
+  const handleMessage = (msg) => {
+    setMessage(msg);
+  }
+
+  const users = [
+    {id: 1, name: "Matheus", job: "Programador", age:31},
+    {id: 2, name: "Maria", job: "Advogada", age:40},
+    {id: 3, name: "Josias", job: "Repórter", age:66},
+    {id: 4, name: "Miguel", job: "Estudante", age:16}
+  ]
 
   return (
     <div className="App">
@@ -73,6 +89,18 @@ function App() {
       </Container>
       {/* executar função */}
       <ExecuteFunction myFunction={showMessage} />
+      {/* state lift */}
+      <Message msg={message}/>
+      <ChangeMessageState handleMessage={handleMessage}/>
+      {/* desafio */}
+      {users.map((user) =>(
+        <UserDetails 
+          key={user.id} 
+          name={user.name} 
+          job={user.job} 
+          age={user.age}
+        />
+      ))}
     </div>
   );
 }
